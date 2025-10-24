@@ -1,5 +1,6 @@
 const Division = require("../models/division.model");
 
+// create division
 const createDivision = async (req, res) => {
   try {
     const data = req.body;
@@ -47,6 +48,20 @@ const createDivision = async (req, res) => {
   }
 };
 
+//get division data
+const getDivisions = async (req, res) => {
+  try {
+    const divisions = await Division.find().sort({
+      id: 1,
+    });
+    res.status(200).json(divisions);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Failed to fetch divisions" });
+  }
+};
+
 module.exports = {
   createDivision,
+  getDivisions,
 };
