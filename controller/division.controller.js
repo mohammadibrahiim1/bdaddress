@@ -56,8 +56,10 @@ const getDivisions = async (req, res) => {
     });
     res.status(200).json(divisions);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Failed to fetch divisions" });
+    console.log(error);
+    res
+      .status(500)
+      .json({ message: "Failed to fetch divisions", error: error.message });
   }
 };
 
