@@ -7,6 +7,7 @@ const connectDB = require("./config/db");
 dotenv.config();
 
 const divisionRouter = require("./routes/division.route");
+const districtsRouter = require("./routes/districts.route");
 
 // Connect to MongoDB
 connectDB();
@@ -19,6 +20,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/divisions", divisionRouter);
+app.use("/api/districts", districtsRouter);
 
 // Test route
 app.get("/", (req, res) => {
